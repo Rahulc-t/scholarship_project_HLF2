@@ -1,0 +1,80 @@
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export CORE_PEER_LOCALMSPID=universityMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/university.scholar.com/peers/peer0.university.scholar.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/university.scholar.com/users/Admin@university.scholar.com/msp
+export CORE_PEER_ADDRESS=localhost:5051
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/scholar.com/orderers/orderer.scholar.com/msp/tlscacerts/tlsca.scholar.com-cert.pem
+export UNIVERSITY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/university.scholar.com/peers/peer0.university.scholar.com/tls/ca.crt
+export SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/peers/peer0.scholarshipDepartment.scholar.com/tls/ca.crt
+export AUDITOR_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/auditor.scholar.com/peers/peer0.auditor.scholar.com/tls/ca.crt
+export TREASURY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/treasury.scholar.com/peers/peer0.treasury.scholar.com/tls/ca.crt
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"submitStudentList","Args":["1", "Tata", "78"]}'
+
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export CORE_PEER_LOCALMSPID=scholarshipDepartmentMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/peers/peer0.scholarshipDepartment.scholar.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/users/Admin@scholarshipDepartment.scholar.com/msp
+export CORE_PEER_ADDRESS=localhost:7051
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/scholar.com/orderers/orderer.scholar.com/msp/tlscacerts/tlsca.scholar.com-cert.pem
+export SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/peers/peer0.scholarshipDepartment.scholar.com/tls/ca.crt
+export AUDITOR_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/auditor.scholar.com/peers/peer0.auditor.scholar.com/tls/ca.crt
+export TREASURY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/treasury.scholar.com/peers/peer0.treasury.scholar.com/tls/ca.crt
+export UNIVERSITY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/university.scholar.com/peers/peer0.university.scholar.com/tls/ca.crt
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"processesStudents","Args":["1"]}'
+
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export CORE_PEER_LOCALMSPID=auditorMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/auditor.scholar.com/peers/peer0.auditor.scholar.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/auditor.scholar.com/users/Admin@auditor.scholar.com/msp
+export CORE_PEER_ADDRESS=localhost:6051
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/scholar.com/orderers/orderer.scholar.com/msp/tlscacerts/tlsca.scholar.com-cert.pem
+export SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/peers/peer0.scholarshipDepartment.scholar.com/tls/ca.crt
+export AUDITOR_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/auditor.scholar.com/peers/peer0.auditor.scholar.com/tls/ca.crt
+export TREASURY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/treasury.scholar.com/peers/peer0.treasury.scholar.com/tls/ca.crt
+export UNIVERSITY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/university.scholar.com/peers/peer0.university.scholar.com/tls/ca.crt
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"queryStudent","Args":["1"]}'
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"queryTotalAmountFromAuditor","Args":[]}'
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"queryTotalAmountFromAuditor","Args":[]}'
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"submitTotalAmountToAuditor","Args":["6000000"]}'
+
+disburseFunds
+queryTotalAmountFromAuditor
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"queryTotalAmountFromAuditor","Args":[]}'
+
+
+
+
+
+export CHANNEL_NAME=mychannel
+export FABRIC_CFG_PATH=./peercfg
+export CORE_PEER_LOCALMSPID=treasuryMSP
+export CORE_PEER_TLS_ENABLED=true
+export CORE_PEER_TLS_ROOTCERT_FILE=${PWD}/organizations/peerOrganizations/treasury.scholar.com/peers/peer0.treasury.scholar.com/tls/ca.crt
+export CORE_PEER_MSPCONFIGPATH=${PWD}/organizations/peerOrganizations/treasury.scholar.com/users/Admin@treasury.scholar.com/msp
+export CORE_PEER_ADDRESS=localhost:9051
+export ORDERER_CA=${PWD}/organizations/ordererOrganizations/scholar.com/orderers/orderer.scholar.com/msp/tlscacerts/tlsca.scholar.com-cert.pem
+export SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/scholarshipDepartment.scholar.com/peers/peer0.scholarshipDepartment.scholar.com/tls/ca.crt
+export AUDITOR_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/auditor.scholar.com/peers/peer0.auditor.scholar.com/tls/ca.crt
+export TREASURY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/treasury.scholar.com/peers/peer0.treasury.scholar.com/tls/ca.crt
+export UNIVERSITY_PEER_TLSROOTCERT=${PWD}/organizations/peerOrganizations/university.scholar.com/peers/peer0.university.scholar.com/tls/ca.crt
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"disburseFunds","Args":["1"]}'
+
+submitTotalAmountToAuditor
+submitTotalAmountToAuditor
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"submitTotalAmountToAuditor","Args":["1000000"]}'
+
+
+
+peer chaincode invoke -o localhost:7050 --ordererTLSHostnameOverride orderer.scholar.com --tls --cafile $ORDERER_CA -C $CHANNEL_NAME -n scholarship --peerAddresses localhost:5051 --tlsRootCertFiles $UNIVERSITY_PEER_TLSROOTCERT --peerAddresses localhost:7051 --tlsRootCertFiles $SCHOLARSHIPDEPARTMENT_PEER_TLSROOTCERT --peerAddresses localhost:6051 --tlsRootCertFiles $AUDITOR_PEER_TLSROOTCERT --peerAddresses localhost:9051 --tlsRootCertFiles $TREASURY_PEER_TLSROOTCERT -c '{"function":"queryRejectedStudents","Args":[]}'

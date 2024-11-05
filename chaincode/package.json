@@ -1,0 +1,24 @@
+{
+"name": "scholar",
+"version": "1.0.0",
+"main": "index.js",
+"scripts": {
+  "test": "mocha --recursive",
+  "start": "fabric-chaincode-node start"
+},
+"keywords": [],
+"author": "",
+"license": "ISC",
+"description": "",
+"dependencies": {
+  "fabric-contract-api": "^2.5.7",
+  "fabric-shim": "^2.5.7"
+},
+"devDependencies": {
+  "chai": "^4.2.0",
+  "chai-as-promised": "^7.1.1",
+  "mocha": "^9.2.0",
+  "sinon": "^9.0.1",
+  "sinon-chai": "^3.5.0"
+}
+}

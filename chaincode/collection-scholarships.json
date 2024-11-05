@@ -1,0 +1,10 @@
+[
+    {
+    "name": "auditorPrivateCollection",
+    "policy": "OR('auditorMSP.member', 'treasuryMSP.member')",
+    "requiredPeerCount": 1,
+    "maxPeerCount": 1,
+    "blockToLive": 100,
+    "memberOnlyRead": true
+    }
+]
